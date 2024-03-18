@@ -5,13 +5,7 @@
       {
         "name": "next"
       }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"]
-      // "@/libs/*": ["libs/*"],
-      // "@/pages/*": ["pages/*"]
-    }
+    ]
   },
   "include": [
     "next-env.d.ts",

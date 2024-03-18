@@ -63,7 +63,7 @@ yarn-error.log
 .env.production.local
 
 # next.js
-.next/
+.next
 
 # Turbo
 .turbo

@@ -1,11 +1,8 @@
-
 <%"---"%>
 
-aliases: 
-created: <% tp.file.creation_date() %> 
-last-updated: <% tp.file.last_modified_date() %> 
+title:
 tags:
+createdAt: <% tp.file.creation_date() %>
+updatedAt: <% tp.file.last_modified_date() %>
 
 <%"---"%>
-
-%% # <% tp.file.title %> %%

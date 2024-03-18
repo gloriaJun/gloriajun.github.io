@@ -58,13 +58,13 @@ module.exports = {
             position: 'after',
           },
           {
-            pattern: '{@**/**}',
+            pattern: '{@/**}',
             group: 'internal',
           },
-          {
-            pattern: '{@markup/**}',
-            group: 'unknown',
-          },
+          // {
+          //   pattern: '{@markup/**}',
+          //   group: 'unknown',
+          // },
         ],
         pathGroupsExcludedImportTypes: ['react'],
         'newlines-between': 'always',
