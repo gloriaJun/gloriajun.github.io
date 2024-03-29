@@ -1,8 +1,11 @@
+import dayjs from 'dayjs';
 import Link from 'next/link';
+import { GetStaticProps, InferGetStaticPropsType } from 'next/types';
 
 import { getAllPostData } from '@/libs/post';
+import { PostListItem } from '@/types/post';
 
-export function getStaticProps() {
+export const getStaticProps = (() => {
   const allPostsData = getAllPostData();
 
   return {
@@ -10,28 +13,27 @@ export function getStaticProps() {
       allPostsData,
     },
   };
-}
+}) satisfies GetStaticProps<{
+  allPostsData: Array<PostListItem>;
+}>;
 
 export default function Home({
   allPostsData,
-}: {
-  allPostsData: ReturnType<typeof getAllPostData>;
-}) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div>
       <h1>Home</h1>
-      <p>
-        Visit the <Link href="/about">About</Link> page.
-      </p>
 
       <section>
         <h2>Blog List</h2>
         <ul>
           {allPostsData.map((item) => (
             <li key={item.id}>
-              <h4>{item.title}</h4>
-              <p>tags: {item.tags.toString()}</p>
-              <p>date: {item.createdAt}</p>
+              <Link href={`/posts/${item.id}`}>
+                <h4>{item.title}</h4>
+              </Link>
+              <p>tags: {item.tags?.toString()}</p>
+              <p>date: {dayjs(item.createdAt).format()}</p>
             </li>
           ))}
         </ul>
