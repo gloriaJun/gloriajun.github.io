@@ -93,25 +93,24 @@ runs:
   using: 'composite'
   steps:
     - name: Read .nvmrc
-      run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      shell: bash
+      run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       id: nvm
+
+    - name: Enable corepack
+      shell: bash
+      run: corepack enable
 
     - name: Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
-
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      id: cache_dependencies
-      with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('pnpm-lock.yaml') }}
+        cache: 'pnpm'
 
     - name: Install dependencies
       shell: bash
-      if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: pnpm install
+
 ```
 
 해당 스크립트는 차후, 다른 ci 스크립트에서도 재사용할 수 있도록 별도로 분리하였고, 반드시 파일명은 `action.yml` 로 생성해주어야한다.
@@ -127,7 +126,6 @@ on:
   push:
     branches:
       - main
-      - feat/deploy
 
 permissions:
   contents: read
@@ -137,6 +135,9 @@ permissions:
 concurrency:
   group: 'pages'
   cancel-in-progress: false
+
+env:
+  app_output_dir: ./apps/devlog/out
 
 jobs:
   build:
@@ -155,12 +156,12 @@ jobs:
           static_site_generator: next
 
       - name: Build my App
-        run: pnpm run build --filter devlog && touch ./out/.nojekyll
+        run: pnpm run build --filter devlog && touch ${{ env.app_output_dir }}/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./apps/devlog/out
+          path: ${{ env.app_output_dir }}
 
   deploy:
     environment:

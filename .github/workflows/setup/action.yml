@@ -5,26 +5,30 @@ runs:
   steps:
     - name: Read .nvmrc
       shell: bash
-      run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+      run: echo "NODE_VERSION=$(cat .nvmrc)" >> $GITHUB_OUTPUT
       id: nvm
-
-    - name: Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
 
     - name: Enable corepack
       shell: bash
       run: corepack enable
 
-    - name: Cache dependencies
-      uses: actions/cache@v3
-      id: cache_dependencies
+    - name: Use Node.js ${{ steps.nvm.outputs.NODE_VERSION }}
+      uses: actions/setup-node@v4
       with:
-        path: node_modules
-        key: node-modules-${{ hashFiles('pnpm-lock.yaml') }}
+        node-version: ${{ steps.nvm.outputs.NODE_VERSION }}
+        cache: 'pnpm'
+
+    # - name: Package Manager Cache dependencies
+    #   uses: actions/cache@v4
+    #   id: cache_dependencies
+    #   with:
+    #     path: ${{ env.STORE_PATH }}
+    #     path: node_modules
+    #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+    #     restore-keys: |
+    #       ${{ runner.os }}-pnpm-store-
 
     - name: Install dependencies
       shell: bash
-      if: steps.cache_dependencies.outputs.cache-hit != 'true'
+      # if: steps.cache_dependencies.outputs.cache-hit != 'true'
       run: pnpm install
