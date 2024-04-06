@@ -127,7 +127,6 @@ on:
   push:
     branches:
       - main
-      - feat/deploy
 
 permissions:
   contents: read
@@ -137,6 +136,9 @@ permissions:
 concurrency:
   group: 'pages'
   cancel-in-progress: false
+
+env:
+  app_output_dir: ./apps/devlog/out
 
 jobs:
   build:
@@ -155,12 +157,12 @@ jobs:
           static_site_generator: next
 
       - name: Build my App
-        run: pnpm run build --filter devlog && touch ./out/.nojekyll
+        run: pnpm run build --filter devlog && touch ${{ env.app_output_dir }}/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./apps/devlog/out
+          path: ${{ env.app_output_dir }}
 
   deploy:
     environment:

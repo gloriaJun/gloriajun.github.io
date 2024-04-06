@@ -6,8 +6,6 @@
 
 - Turborepo v18.0.x
 - pnpm v8.15.x
-- Gatsby v5.13.x
-- React v18.2.x
 
 ## Prepared to run server
 
@@ -27,4 +25,10 @@ corepack use pnpm@latest
 
 ```bash
 pnpm install
+```
+
+### Run Server
+
+```bash
+pnpm run <script_command> --filter <package_name>
 ```
