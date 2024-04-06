@@ -27,7 +27,7 @@ const redComponent = palette.red.at(0);
 const greenNormalized = palette.green.toUpperCase();
 ```
 
-기존에는 위와 같은 경우 잘못 정의되는 key 값을 예방하기 위해 다음과 같이 정의하곤 했었다.
+기존에는 위와 같은 경우 잘못 정의되는 key 값을 예방하기 위해 다음과 같이 정의하여 사용하였는데...
 
 ```typescript
 type Colors = 'red' | 'green' | 'blue';
@@ -45,9 +45,7 @@ const palette: Record<Colors, RGB> = {
 };
 ```
 
-하지만, 위와 같이 사용하는 경우에는 내가 정의한 타입으로 고정되어 각 key에 대한 정의된 타입을 명확히 알기 어려웠다.
-
-즉, 다음과 같이 확인이 되었다.
+하지만, 위와 같이 사용하는 경우에는 내가 정의한 타입으로 고정되어 각 key에 대한 정의된 타입이 다음 예시와 같이 표현이 되어 명확히 알기 어렵다는 불편함이 있었다.
 
 ```bash
 const palette: Record<Colors, RGB>
