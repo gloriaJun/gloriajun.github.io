@@ -56,19 +56,29 @@ Storybook v7.x 이후에는 title을 별도로 정의하지 않아도 해당 스
 사용해본 스토리북 플러그인 중에 유용했다고 생각했던 플러그인들을 정리해보자면..
 
 - [storybook-addon-useragent](https://storybook.js.org/addons/storybook-addon-useragent
+
   - use agent 별로 스토리북을 이용한 테스트가 가능
+
 - [@geometricpanda/storybook-addon-badges](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiNhqLc7ciEAxVYj68BHayeAXUQFnoECBkQAQ&url=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2F%40geometricpanda%2Fstorybook-addon-badges&usg=AOvVaw0fgVV1x3WW3JGWMe0OvVYP&opi=89978449)
+
   - 현재 배포된 버전을 표기하거나, 해당 컴포넌트에 대한 특정 정보를 배지를 이용하여 표현할 수 있음
+
 - [@storybook/addon-console](https://www.npmjs.com/package/@storybook/addon-console
+
   - 개발자도구의 콘솔 로그에 노출되는 정보를 스토리북의 action 탭에도 출력됨으로 별도로 개발자 도구를 키지 않고도 콘솔 로그에 찍히는 정보를 확인할 수 있다.
+
 - [@storybook/addon-storyshots](https://www.npmjs.com/package/@storybook/addon-storyshots)
+
   - 각 스토리 케이스에 대하여 html 스냅샷을 생성하여 이전 버전과 비교하여 변경 이력을 추적할 수 있다.
     - 공통 모듈을 사용하는 부분에서 받게 되는 영향도 예측이라던가...마치 보험과 같은 존재였다라고 할까나??
   - 대신, 해당 플러그인을 활용하여 스냅샷 테스트를 한다면 msw, redux와 같은 비지니스 로직과 같은 해당 컴포넌트에 포함되어있다면, 의도된 대로 화면이 그려지지 않아서 의미없는 테스트가 실행될 수도 있다.
     - 그러므로, 스냅샷 테스트를 활용하고자 한다면 가급적 props로 주입받아 그려지는 presentation 컴포넌트로 구현을 하거나, 공통 모듈들에 적용하여 활용하는 방안을 검토해보는 것이 좋을 것 같다.
+
 - [@storybook/addon-docs](https://storybook.js.org/addons/@storybook/addon-docs)
-  - 스토리북을 활용한 개발 가이드 문서까지!!!
-  - 근데, 아직 제대로 잘 활용해볼 기회가 없어서....아쉬운 기능...
+
+  - 작성한 스토리를 기반으로 매뉴얼과 같은 문서를 생성해준다.
+  - Storybook v7 부터는 추가적인 Addon을 설치하지 않고, 간단한 설정을 추가해주면 된다.
+
 - [@storybook/addon-interactions](https://storybook.js.org/addons/@storybook/addon-interactions)
   - 사용자 클릭 시에 대한 동작 테스트 자동화를 할 수 있다!
   - 자세한 내용은 다음의 링크들 참고!
