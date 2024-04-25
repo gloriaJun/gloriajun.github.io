@@ -12,6 +12,7 @@
 | tech Blog | [헤렌-기술블로그](https://techblog.herrencorp.com) |      |
 |           | [올리브영-기술블로그](https://oliveyoung.tech)     |      |
 |           | [테오-프론트앤드](https://velog.io/@teo/posts)     |      |
+|           | https://junghyeonsu.com                            |      |
 
 ## JavaScript
 
@@ -46,14 +47,15 @@
 
 ## Culture
 
-| Category    | Url                                                                                                  | tags         |
-| ----------- | ---------------------------------------------------------------------------------------------------- | ------------ |
-| Code Review | [코드 리뷰 문화를 리뷰해 봐요](https://techblog.herrencorp.com/944b4da4-a0e1-434c-af53-83b38c09a1a5) | #code-review |
-|             |                                                                                                      |              |
+| Category    | Url                                                                                                                        | tags         |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Code Review | [코드 리뷰 문화를 리뷰해 봐요](https://techblog.herrencorp.com/944b4da4-a0e1-434c-af53-83b38c09a1a5)                       | #code-review |
+| 개발 문화   | [핀다-우리의 개발문화는 이렇게 성장합니다](https://medium.com/finda-tech/우리의-개발문화는-이렇게-성장합니다-8f57b06ca549) | #dev-culture |
 
 ## Keep
 
-| Category | Url                                                                              | tags                            |
-| -------- | -------------------------------------------------------------------------------- | ------------------------------- |
-| bundling | [똑똑하게 브라우저 Polyfill 관리하기](https://toss.tech/article/smart-polyfills) | #javascript #polyfill #bundling |
-| logging  | [프론트엔드 로깅 신경 안 쓰기](https://toss.tech/article/engineering-note-5)     | #javascript #logging            |
+| Category | Url                                                                                                                                                                            | tags                            |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| bundling | [똑똑하게 브라우저 Polyfill 관리하기](https://toss.tech/article/smart-polyfills)                                                                                               | #javascript #polyfill #bundling |
+| logging  | [프론트엔드 로깅 신경 안 쓰기](https://toss.tech/article/engineering-note-5)                                                                                                   | #javascript #logging            |
+| git      | [팀장님에게 칭찬받기 좋은 Git 꿀팁 2가지](https://yozm.wishket.com/magazine/detail/2545/?utm_source=stibee&utm_medium=email&utm_campaign=newsletter_yozm&utm_content=contents) | #git                            |
