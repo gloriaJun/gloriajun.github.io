@@ -1,23 +1,59 @@
 {
   "name": "@repo/ui",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "private": false,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./code": {
+      "types": "./dist/types/code/index.d.ts",
+      "require": "./dist/code/index.cjs",
+      "import": "./dist/code/index.mjs"
+    },
+    "./card": {
+      "types": "./dist/types/card/index.d.ts",
+      "require": "./dist/card/index.cjs",
+      "import": "./dist/card/index.mjs"
+    },
+    "./button": {
+      "types": "./dist/types/button/index.d.ts",
+      "require": "./dist/button/index.cjs",
+      "import": "./dist/button/index.mjs"
+    },
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
   },
   "scripts": {
     "generate:component": "turbo gen react-component",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 5"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 5",
+    "build": "rollup --config rollup.config.ts --configPlugin typescript"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
     "@turbo/gen": "^1.12.4",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
-    "react": "^18.2.0"
+    "autoprefixer": "^10.4.19",
+    "rollup": "^4.17.1",
+    "rollup-plugin-analyzer": "^4.0.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-preserve-directives": "^1.1.1"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "react": "^18.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }

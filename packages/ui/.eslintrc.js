@@ -7,5 +7,5 @@ module.exports = {
     project: './tsconfig.lint.json',
     tsconfigRootDir: __dirname,
   },
-  ignorePatterns: ['turbo/**'],
+  ignorePatterns: ['turbo/**', '*.config.ts'],
 };
