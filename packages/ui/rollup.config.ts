@@ -5,6 +5,7 @@ import typescript from '@rollup/plugin-typescript';
 import analyze from 'rollup-plugin-analyzer';
 import terser from '@rollup/plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import copy from 'rollup-plugin-copy';
 // @ts-ignore
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import preserveDirectives from 'rollup-preserve-directives';
@@ -18,7 +19,7 @@ import { createRequire } from 'node:module';
 const pkgPath = resolve('package.json');
 const currentDate = new Date().toUTCString();
 const execPromise = promisify(exec);
-const distDir = resolve('dist');
+const distDir = resolve('../../dist/packages/ui/dist');
 
 let getBannerPromise: Promise<string> | null = null;
 
@@ -81,7 +82,7 @@ export default async function getConfig(): Promise<
       banner: getBanner,
       // intro: '"use client";',
     },
-    // external: [], // use peerDepsExternal instead
+    external: ['react/jsx-runtime'],
     plugins: [
       peerDepsExternal({
         packageJsonPath: pkgPath,
@@ -89,7 +90,13 @@ export default async function getConfig(): Promise<
       preserveDirectives(),
       nodeResolve(),
       commonjs(),
-      typescript({ tsconfig: 'tsconfig.lib.json' }),
+      typescript({
+        tsconfig: 'tsconfig.lib.json',
+        compilerOptions: {
+          outDir: distDir,
+          declarationDir: resolve(distDir, 'types'),
+        },
+      }),
       postcss({
         plugins: [autoprefixer()],
         // extract: false,
@@ -107,6 +114,22 @@ export default async function getConfig(): Promise<
           // to do not remove directives for 'use client'
           directives: false,
         },
+      }),
+      copy({
+        targets: [
+          {
+            src: resolve('README.md'),
+            dest: resolve(distDir, '..'),
+          },
+          {
+            src: resolve('package.json'),
+            dest: resolve(distDir, '..'),
+          },
+          // {
+          //   src: resolve('dist/types'),
+          //   dest: distDir,
+          // },
+        ],
       }),
       analyze({ summaryOnly: true }),
     ],

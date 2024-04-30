@@ -9,7 +9,6 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings 0"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
     "dayjs": "^1.11.10",
     "gray-matter": "^4.0.3",
     "html-react-parser": "^5.1.10",

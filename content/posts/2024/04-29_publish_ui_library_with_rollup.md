@@ -214,10 +214,17 @@ export default async function getConfig(): Promise<
       sourcemap: true,
       banner: getBanner,
     },
+    external: ['react/jsx-runtime'],
     plugins: [
       nodeResolve(),
       commonjs(),
-      typescript({ tsconfig: 'tsconfig.lib.json' }),
+      typescript({
+        tsconfig: 'tsconfig.lib.json',
+        compilerOptions: {
+          outDir: distDir,
+          declarationDir: resolve(distDir, 'types'),
+        },
+      }),
     ],
   } satisfies RollupOptions;
 
@@ -512,8 +519,7 @@ rollup을 위한 빌드를 위해 다음과 같은 플러그인들을 설치하�
   - 번들링된 소스를 minify 및 uglify 처리를 도와주는 플러인이다.
 - [rollup-plugin-copy](https://www.npmjs.com/package/rollup-plugin-copy)
   - 파일이나 폴더를 복사하기 위해 사용한다.
-- [rollup-plugin-postcss](https://www.npmjs.com/package/rollup-plugin-postcss)
-  -
+- ## [rollup-plugin-postcss](https://www.npmjs.com/package/rollup-plugin-postcss)
 
 ## Trouble Shooting
 
