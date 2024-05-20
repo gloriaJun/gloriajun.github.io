@@ -388,13 +388,12 @@ import preserveDirectives from 'rollup-preserve-directives';
         packageJsonPath: pkgPath,
       }),
       preserveDirectives(),
+      postcss({
+        plugins: [autoprefixer()],
+      }),
       nodeResolve(),
       commonjs(),
       typescript({ tsconfig: 'tsconfig.lib.json' }),
-      postcss({
-        plugins: [autoprefixer()],
-        // extract: false,
-        // modules: true,        // use: ["sass"],      }),
       terser({
 		compress: {
           // remove console.
@@ -519,7 +518,8 @@ rollup을 위한 빌드를 위해 다음과 같은 플러그인들을 설치하�
   - 번들링된 소스를 minify 및 uglify 처리를 도와주는 플러인이다.
 - [rollup-plugin-copy](https://www.npmjs.com/package/rollup-plugin-copy)
   - 파일이나 폴더를 복사하기 위해 사용한다.
-- ## [rollup-plugin-postcss](https://www.npmjs.com/package/rollup-plugin-postcss)
+- [rollup-plugin-postcss](https://www.npmjs.com/package/rollup-plugin-postcss)
+- [@rollup/plugin-dynamic-import-vars](https://www.npmjs.com/package/@rollup/plugin-dynamic-import-vars)
 
 ## Trouble Shooting
 
@@ -553,6 +553,45 @@ onwarn: (warning, warn) => {
   }
 
   warn(warning);
+},
+```
+
+### Module not found: Can't resolve '../../node_modules/.pnpm/style-inject@0.3.0/node_modules/style-inject/dist/style-inject.es.mjs'
+
+```bash
+Import trace for requested module:
+../../node_modules/.pnpm/@scope+react-ui@1.0.0_@types+react-dom@18.3.0_@types+react@18.3.1_react-dom@18.3.1_react@18.3.1/node_modules/@scope+react-ui/buttons/ActionButton.mjs
+../../node_modules/.pnpm/@scope+react-ui@1.0.0_@types+react-dom@18.3.0_@types+react@18.3.1_react-dom@18.3.1_react@18.3.1/node_modules/@scope/react-ui/index.mjs
+./components/home/demo/Switch.tsx
+ ⨯ ../../node_modules/.pnpm/@scope+react-ui@1.0.0_@types+react-dom@18.3.0_@types+react@18.3.1_react-dom@18.3.1_react@18.3.1/node_modules/@scope/react-ui/buttons/ActionButton.module.scss.mjs:6:1
+Module not found: Can't resolve '../../node_modules/.pnpm/style-inject@0.3.0/node_modules/style-inject/dist/style-inject.es.mjs'
+
+https://nextjs.org/docs/messages/module-not-found
+```
+
+- 현상
+  - 빌드한 패키지 모듈을 npm으로 부터 다운받아 사용할 때에 node_module의 번들링된 파일을 찾지 못해 런타임 에러가 발생하였다.
+- 원인
+  - rollup에서 **preserveModules** 옵션을 `true`로 설정하여 빌드 시에 외부 모듈에 대해 `node_modules` 하위에 번들링된 파일을 생성하게 된다.
+  - 근데, 이 부분이 npm publish에서 기본적으로 ignore가 되어 배포가 진행되다보니, 패키지를 다운받을 때에 해당 모듈이 없어 발생하게 되었다.
+- 해결
+  - https://github.com/rollup/rollup/issues/3684#issuecomment-1535836196 의 글을 참고하여 node_modules의 폴더명을 바꿔서 빌드가 되도록 수정하였다.
+
+```typescript
+output: {
+  ...commonJsBuild.output,
+  format: 'esm',
+  minifyInternalExports: false,
+  sourcemap: false,
+  preserveModules: true,
+  preserveModulesRoot: 'src',
+  entryFileNames: (chunkInfo) => {
+    if (chunkInfo.name.includes('node_modules')) {
+      return chunkInfo.name.replace('node_modules', 'external') + '.js';
+    }
+
+    return '[name].mjs';
+  },
 },
 ```
 

@@ -139,12 +139,18 @@ export default async function getConfig(): Promise<
     ...commonJsBuild,
     output: {
       ...commonJsBuild.output,
-      entryFileNames: '[name].mjs',
       format: 'esm',
       minifyInternalExports: false,
       sourcemap: false,
       preserveModules: true,
       preserveModulesRoot: 'src',
+      entryFileNames: (chunkInfo) => {
+        if (chunkInfo.name.includes('node_modules')) {
+          return chunkInfo.name.replace('node_modules', 'external') + '.js';
+        }
+
+        return '[name].mjs';
+      },
     },
   } satisfies RollupOptions;
 
