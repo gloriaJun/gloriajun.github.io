@@ -23,13 +23,9 @@
 | SWR                           | [swr](https://swr.vercel.app/docs/advanced/understanding)                                                | #javascript #api       |
 | chancejs                      | https://chancejs.com/index.html                                                                          | #javascript #mock-data |
 | faker                         | https://fakerjs.dev                                                                                      | #javascript #mock-data |
+| TypeScript                    | [infer, never만 보면 두려워지는 당신을 위한 고급 TypeScript](https://d2.naver.com/helloworld/7472830)    | #typescript            |
+| Chart                         | [shadcn/ui-chart](https://ui.shadcn.com/charts)                                                          | #javascript #chart     |
 |                               |                                                                                                          |                        |
-
-## CSS
-
-| Category                | Url                                                                | tags |
-| ----------------------- | ------------------------------------------------------------------ | ---- |
-| Safe-area (over ios 11) | https://github.com/im-d-team/Dev-Docs/blob/master/CSS/safe-area.md | #css |
 
 ## CI/CD
 
@@ -40,10 +36,20 @@
 
 ## Tools
 
-| Category | Url                                               | tags          |
-| -------- | ------------------------------------------------- | ------------- |
-| Agile    | [스토리 포인트 투표](https://poinz.herokuapp.com) | #storypoint   |
-| Uml      | https://real-world-plantuml.com/?type=activity    | #uml #diagram |
+| Category      | Url                                                                       | tags           |                                                                                                 |
+| ------------- | ------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------- |
+| Agile         | [스토리 포인트 투표](https://poinz.herokuapp.com)                         | #storypoint    |                                                                                                 |
+| Uml           | https://real-world-plantuml.com/?type=activity                            | #uml #diagram  |                                                                                                 |
+| HTTP Test     | [RequestBin](https://pipedream.com/requestbin)                            |                | http와 webhook 정보를 요청/수집할 수 있는 사이트<br>- private mode가 아니면 로그인 필요없음 r>- |
+| Github Action | [GitHub API를 사용하는 스크립트 모음](https://eunjin3786.tistory.com/194) | #github-action |                                                                                                 |
+| ngrok         | [ngrok](https://dashboard.ngrok.com/get-started/setup/macos)              |                | 로컬에 띄운 서버를 외부에서 접속할 수 있도록 임시로 도메인을 만들어주는 도구                    |
+
+### Open API for test
+
+| Category | Url                                  | tags |                                                           |
+| -------- | ------------------------------------ | ---- | --------------------------------------------------------- |
+|          | https://reqres.in                    |      | A hosted REST-API ready to respond to your AJAX requests. |
+|          | https://jsonplaceholder.typicode.com |      | Free fake and reliable API for testing and prototyping.   |
 
 ## Culture
 

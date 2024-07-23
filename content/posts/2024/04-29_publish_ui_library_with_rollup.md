@@ -510,7 +510,7 @@ rollup을 위한 빌드를 위해 다음과 같은 플러그인들을 설치하�
 - [rollup-plugin-peer-deps-external](https://www.npmjs.com/package/rollup-plugin-peer-deps-external)
   - 다른 플러그인들 정의보다 상위에 위치하도록 정의하는 것이 좋음
     - `package.json`의 **peerDependencies**에 정의한 모듈을 번들링 결과물에 포함시키지 않는다.
-    - rollup의의 차이가 무엇일까?
+    - rollup의 "external" 설정과의 차이는?
       - external 필드를 사용하여 번들링 과정에서 제외하고자 하는 것은 동일하나, 별도로 설정 파일에 명시함으로서 제어한다.
       - peerDependencies에 정의한 것과 독립적으로 관리
         - 즉, peerDependencies에 정의하였다고 rollup이 읽어서 처리해주지는 않는다.

@@ -3,7 +3,7 @@ title: (TypeScript) Define Function Argument Type
 tags:
   - typescript
 createdAt: 2024-02-14 19:28
-updatedAt: 2024-02-22 21:19
+updatedAt: 2024-07-12 11:19
 ---
 
 ## Obtain type definition from the pre-defined function argument
@@ -36,4 +36,23 @@ type ParamsArgs = Parameters<typeof testA>;
 
 type ParamsFromSecondArgs = TailOf<ParamsArgs>;
 // [b: string[], c?: boolean | undefined, d?: Record%3Cstring, string> | undefined]
+```
+
+### Get type from the promise
+
+```typescript
+function fetchString(): Promise<string> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Hello, world!');
+    }, 1000);
+  });
+}
+
+type FetchStringReturnType = Awaited<ReturnType<typeof fetchString>>;
+// string
+
+// 'Awaited' type can only TypeScript 4.5+
+// You can define type
+type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 ```
