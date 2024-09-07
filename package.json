@@ -5,9 +5,9 @@
   "author": "gloriaJun <pureainu@gmail.com>",
   "scripts": {
     "prepare": "husky install",
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
@@ -21,7 +21,7 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "sass": "^1.75.0",
-    "turbo": "^1.12.5",
+    "turbo": "^2.1.1",
     "typescript": "^5.3.3"
   },
   "packageManager": "pnpm@9.9.0",
