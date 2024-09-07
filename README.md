@@ -32,3 +32,11 @@ pnpm install
 ```bash
 pnpm run <script_command> --filter <package_name>
 ```
+
+## Manage Packages
+
+### Update Package
+
+```bash
+pnpm update --latest --recursive
+```

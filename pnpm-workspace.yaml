@@ -3,3 +3,5 @@ packages:
   - "apps/*"
   # all packages in subdirs of packages/
   - "packages/*"
+  # lecture notes & app applications
+  - "apps-lecture/*"

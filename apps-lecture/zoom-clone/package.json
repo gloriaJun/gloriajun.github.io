@@ -1,0 +1,34 @@
+{
+  "name": "zoom-clone",
+  "version": "1.0.0",
+  "description": "Zoom Clone using WebRTC and WebSockets",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npx npm-run-all --parallel dev:*",
+    "dev:server": "nodemon",
+    "dev:build": "$npm_execpath run build -- --watch",
+    "build": "webpack --config ./build/webpack.config.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pug": "^3.0.3",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.4",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-node-externals": "^3.0.4",
+    "@types/ws": "^8.5.12",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "nodemon": "^3.1.4",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
