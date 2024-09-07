@@ -15,13 +15,13 @@
 
 ### Library
 
-| Category | Url                      | tags       |
-| -------- | ------------------------ | ---------- |
-| svgl     | [svgl](https://svgl.app) | #svg #icon |
-|          |                          |            |
-|          |                          |            |
-|          |                          |            |
-|          |                          |            |
+| Category    | Url                                                      | tags       |
+| ----------- | -------------------------------------------------------- | ---------- |
+| svgl        | [svgl](https://svgl.app)                                 | #svg #icon |
+| loading ani | [Whirl](https://whirl.netlify.app)                       | #loading   |
+| gradation   | https://www.learnui.design/tools/gradient-generator.html |            |
+|             |                                                          |            |
+|             |                                                          |            |
 
 ### Others
 

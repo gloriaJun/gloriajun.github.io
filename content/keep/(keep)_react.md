@@ -7,6 +7,10 @@
   - [React 19 강좌 1편 - 액션과 useTransition으로 비동기 작업 처리하기 기본 사용법과 폼 처리 변화](https://mycodings.fly.dev/blog/2024-07-14-react-19-tutorial-1-usetransition-and-new-form-api)
 - [리액트 18의 새로운 훅: useDeferredValue와 useTransition](https://f-lab.kr/insight/react-18-new-hooks-20240630)
 
+## Next.js
+
+- [Deploy Nextjs Standalone with Lambda & Express](https://velog.io/@kandy1002/Deploy-Nextjs-Standalone-with-Lambda-Express)
+
 ### Library
 
 - [usehooks-ts](https://usehooks-ts.com)
@@ -25,3 +29,7 @@
 
 - https://github.com/codesandbox/sandpack
 -
+
+## Refactoring
+
+- [Common Sense Refactoring of a Messy React Component](https://alexkondov.com/refactoring-a-messy-react-component)
