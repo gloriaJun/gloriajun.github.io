@@ -8,7 +8,6 @@ import {
   HStack,
   IconButton,
   List,
-  Text,
   useColorModeValue,
   useDisclosure,
 } from '@chakra-ui/react';
