@@ -1,0 +1,5 @@
+- [구독자 3억 유투버, '미스터비스트'오 일하면 어떨까?](https://yozm.wishket.com/magazine/detail/2793)
+  - "어떤 인재를 선호하는 지?", "원하는 일하는 방식?" ...과 같은 부분들을 엿볼 수 있음
+- [3 Career Principles that got me to Director at Google](https://read.highgrowthengineer.com/p/3-career-principles-to-director-at-google)
+  - 전직 구글 디렉터가 10년 동안 5번의 승진을 달성하는 데 도움이 되었던 3가지 커리어 원칙은?
+    - 확실하고 화려한 무언가를 이루는 게 아닌, 그 뒤에 있는 사소한 디테일과 숨은 노력을 중요시했다는 게 인상 깊었음.

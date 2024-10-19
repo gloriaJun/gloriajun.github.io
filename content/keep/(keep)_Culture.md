@@ -1,0 +1,2 @@
+- [(번역) 좋은 리팩터링 vs 나쁜 리팩터링](https://ykss.netlify.app/translation/good_refactoring_vs_bad_refactoring/)]
+-

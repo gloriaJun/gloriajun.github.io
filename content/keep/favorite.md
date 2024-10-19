@@ -65,3 +65,4 @@
 | bundling | [똑똑하게 브라우저 Polyfill 관리하기](https://toss.tech/article/smart-polyfills)                                                                                               | #javascript #polyfill #bundling |
 | logging  | [프론트엔드 로깅 신경 안 쓰기](https://toss.tech/article/engineering-note-5)                                                                                                   | #javascript #logging            |
 | git      | [팀장님에게 칭찬받기 좋은 Git 꿀팁 2가지](https://yozm.wishket.com/magazine/detail/2545/?utm_source=stibee&utm_medium=email&utm_campaign=newsletter_yozm&utm_content=contents) | #git                            |
+|          |                                                                                                                                                                                |                                 |
